@@ -34,7 +34,8 @@ server.post('/signin', async (request, response) => {
     const credentialsSchema = joi.object({
         name: joi.string().required(),
         email: joi.string().email().required(),
-        password: joi.string().required()
+        password: joi.string().required(),
+        passwordConfirm: joi.ref('password')
     });
     const validation = credentialsSchema.validate(userData);
     if (validation.error) {

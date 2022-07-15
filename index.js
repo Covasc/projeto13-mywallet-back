@@ -196,6 +196,20 @@ server.post('/user/movimentation', async (request, response) => {
     }
 })
 
+server.get('/promotion', async (request, response) => {
+
+    try {
+        const object = await db.collection('products').find({promotion: true}).toArray();
+        
+        return response.status(202).send(object);
+    } catch(error) {
+        console.log(error);
+        //INTERNAL SERVER ERROR
+        return response.sendStatus(500);
+    };
+
+})
+
 server.listen(PORT, () => {
     console.log("Server running")
 });

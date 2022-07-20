@@ -1,4 +1,4 @@
-import db from "../db";
+import db from "../db.js";
 import joi from "joi";
 import dayjs from "dayjs";
 
